@@ -1,14 +1,4 @@
-<?php 
-    require_once("lib/dbcon.php");
-    if(isset($_GET["p"]))
-    {
-        $p = $_GET["p"];
-    }
-    else
-    {
-        $p = "";
-    }
-?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,6 +8,18 @@
 </head>
 
 <body>
+<?php 
+    require_once "lib/dbcon.php";
+    require_once "lib/trangchu.php";
+    if(isset($_GET["p"]))
+    {
+        $p = $_GET["p"];
+    }
+    else
+    {
+        $p = "";
+    }
+?>
 <div id="wrap-vp">
     <div id="header-vp">
     	<div id="logo"><img src="images/logo.gif" /></div>
