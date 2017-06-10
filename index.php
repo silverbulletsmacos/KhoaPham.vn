@@ -84,8 +84,8 @@
     
      <div id="thongtin">
     	<!--blocks/thongtindoanhnghiep.php-->
-        <?php require "thongtindoanhnghiep.php"; ?>
-    </div>
+        <!-- <?php require "thongtindoanhnghiep.php"; ?>
+ -->    </div>
     <div class="clear"></div>
     <div id="footer">
     	<!--blocks/footer.php-->

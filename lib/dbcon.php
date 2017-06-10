@@ -12,7 +12,7 @@ function connect()
     if(!$conn)
     {
         $conn = mysqli_connect('localhost', 'root', '', 'khoaphamtraining');
-        mysqli_set_charset($conn, 'UTF-8');
+        mysqli_set_charset($conn, "utf8");
     }
 }
 

@@ -20,3 +20,11 @@ function tinmoinhat_namtin()
     $sql = "select * from tin order by idTin desc limit 1,5";
     return mysqli_query($conn, $sql);
 }
+
+function tinxemnhieunhat()
+{
+	global $conn;
+	connect();
+	$sql = "select * from tin order by SoLanXem desc limit 0,8";
+	return mysqli_query($conn, $sql);
+}
