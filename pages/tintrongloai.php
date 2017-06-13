@@ -1,3 +1,27 @@
+<?php
+    $idLT = $_GET['idLT'];
+    settype($idTL, "int");
+?>
+<?php
+    $bc = breadcrumb($idLT);
+    $row_bc = mysqli_fetch_array($bc, MYSQLI_ASSOC);
+?>
+<div> Trang chủ >> <?php echo $row_bc['TenTL'];?> >> <?php echo $row_bc['Ten'];?> </div>
+<?php
+    $sotin1trang = 4;
+    if(isset($_GET['trang']))
+    {
+        $trang = $_GET['trang'];
+    }
+    else
+    {
+        $trang = 1;
+    }
+    $from = ($trang - 1 ) * $sotin1trang;
+    $tin = tintheoloaitin_phantrang($idLT, $from, $sotin1trang);
+    while($row_tin = mysqli_fetch_array($tin, MYSQLI_ASSOC))
+    {
+?>
 <div class="box-cat">
 	<div class="cat1">
     	
@@ -5,9 +29,9 @@
         <div class="cat-content">
         	<div class="col0 col1">
             	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
+                    <h3 class="title" ><a href="index.php?p=chitiettin&idTin=<?php echo $row_tin['idTin']; ?>"><?php echo $row_tin['TieuDe']; ?></a></h3>
+                    <img class="images_news" src="upload/tintuc/<?php echo $row_tin['urlHinh']; ?>" align="left" />
+                    <div class="des"><?php echo $row_tin['TomTat']; ?></div>
                     <div class="clear"></div>
                    
 				</div>
@@ -16,281 +40,18 @@
         </div>
     </div>
 </div>
-
-
-
-<!-- box cat-->
-
-
-
 <div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-              
-        </div>
-    </div>
+
+<?php } ?>
+<div id = "phantrang">
+<?php
+    $t = tintheoloaitin($idLT);
+    $tong = mysqli_num_rows($t);
+    $tongsotrang = ceil($tong / $sotin1trang);
+    for($i = 1; $i <= $tongsotrang; $i++)
+    {
+?> 
+        <a <?php if($i == $trang) echo "style = 'background-color: red '"; ?> href="index.php?p=tintrongloai&idLT=<?php echo $idLT; ?>&trang=<?php echo $i; ?>"><?php echo $i; ?></a>
+<?php } ?>
 </div>
-
-
 <!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-          
-        </div>
-    </div>
-</div>
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-             
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-             
-        </div>
-    </div>
-</div>
-
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-             
-        </div>
-    </div>
-</div>
-
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-           
-        </div>
-    </div>
-</div>
-
-
-
-<!-- box cat-->
-
-
-
-<div class="clear"></div>
-<div class="box-cat">
-	<div class="cat1">
-    	
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col0 col1">
-            	<div class="news">
-                    <h3 class="title" ><a href="#">Tour de France 2014 và những khoảnh khắc đẹp </a></h3>
-                    <img class="images_news" src="upload/tintuc/9-1406519730_180x108.jpg" align="left" />
-                    <div class="des">Băng qua những cánh đồng hướng dương, đua trong những ngày mưa gió hoặc những đoạn đồi núi hiểm trở... là hình ảnh ấn tượng đọng lại trong lần thứ </div>
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-               
-        </div>
-    </div>
-</div>
-
-

@@ -1,17 +1,23 @@
 <!-- box cat -->
+<?php
+    $idLT = 17;
+    $tinmoinhat_theoloai_mottin = tinmoinhat_theoloai_mottin($idLT);
+    $row_tinmoinhat_theoloai_mottin = mysqli_fetch_array($tinmoinhat_theoloai_mottin, MYSQLI_ASSOC);
+
+?>
 <div class="box-cat">
 	<div class="cat">
     	<div class="main-cat">
-        	<a href="#">Cuộc sống đó đây</a>
+        	<a href="#"><?php echo $row_tinmoinhat_theoloai_mottin['Ten']; ?></a>
         </div>
        
         <div class="clear"></div>
         <div class="cat-content">
         	<div class="col1">
             	<div class="news">
-                <h3 class="title" ><a href="#"> Tai nạn hàng không dồn dập nửa đầu năm 2014 </a></h3>
-                  <img class="images_news" src="upload/tintuc/ekaterinaparkhome2987311b-1406341819_1406341842_180x108.jpg" align="left" />
-                    <div class="des">Bảy vụ tai nạn hàng không nội địa và quốc tế thảm khốc liên tiếp xảy ra từ đầu năm đến nay khiến dư luận bàng hoàng và trở nên </div>
+                <h3 class="title" ><a href="index.php?p=chitiettin&idTin=<?php echo $row_tinmoinhat_theoloai_mottin['idTin']; ?>"> <?php echo $row_tinmoinhat_theoloai_mottin['TieuDe']; ?> </a></h3>
+                  <img class="images_news" src="upload/tintuc/<?php echo $row_tinmoinhat_theoloai_mottin['urlHinh']; ?>" align="left" />
+                    <div class="des"><?php echo $row_tinmoinhat_theoloai_mottin['TomTat']; ?> </div>
                   
                   
                     <div class="clear"></div>
@@ -19,10 +25,13 @@
 				</div>
             </div>
             <div class="col2">
-           <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-            <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-             <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-           
+            <?php
+                $tinmoinhat_theoloai_namtin = tinmoinhat_theoloai_namtin($idLT);
+                while($row_tinmoinhat_theoloai_namtin = mysqli_fetch_array($tinmoinhat_theoloai_namtin, MYSQLI_ASSOC))
+                {
+            ?>
+           <h3 class="tlq"><a href="index.php?p=chitiettin&idTin=<?php echo $row_tinmoinhat_theoloai_namtin['idTin']; ?>"><?php echo $row_tinmoinhat_theoloai_namtin['TieuDe']; ?></a></h3>  
+           <?php } ?>         
             </div> 
            
         </div>
@@ -34,31 +43,41 @@
 <!-- //box cat -->
 
 
+
 <!-- box cat -->
+<?php
+    $idLT = 24;
+    $tinmoinhat_theoloai_mottin = tinmoinhat_theoloai_mottin($idLT);
+    $row_tinmoinhat_theoloai_mottin = mysqli_fetch_array($tinmoinhat_theoloai_mottin, MYSQLI_ASSOC);
+
+?>
 <div class="box-cat">
-	<div class="cat">
-    	<div class="main-cat">
-        	<a href="#">Cuộc sống đó đây</a>
+    <div class="cat">
+        <div class="main-cat">
+            <a href="#"><?php echo $row_tinmoinhat_theoloai_mottin['Ten']; ?></a>
         </div>
        
         <div class="clear"></div>
         <div class="cat-content">
-        	<div class="col1">
-            	<div class="news">
-                <h3 class="title" ><a href="#"> Tai nạn hàng không dồn dập nửa đầu năm 2014 </a></h3>
-                  <img class="images_news" src="upload/tintuc/ekaterinaparkhome2987311b-1406341819_1406341842_180x108.jpg" align="left" />
-                    <div class="des">Bảy vụ tai nạn hàng không nội địa và quốc tế thảm khốc liên tiếp xảy ra từ đầu năm đến nay khiến dư luận bàng hoàng và trở nên </div>
+            <div class="col1">
+                <div class="news">
+                <h3 class="title" ><a href="index.php?p=chitiettin&idTin=<?php echo $row_tinmoinhat_theoloai_mottin['idTin']; ?>"> <?php echo $row_tinmoinhat_theoloai_mottin['TieuDe']; ?> </a></h3>
+                  <img class="images_news" src="upload/tintuc/<?php echo $row_tinmoinhat_theoloai_mottin['urlHinh']; ?>" align="left" />
+                    <div class="des"><?php echo $row_tinmoinhat_theoloai_mottin['TomTat']; ?> </div>
                   
                   
                     <div class="clear"></div>
                    
-				</div>
+                </div>
             </div>
             <div class="col2">
-           <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-            <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-             <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-           
+            <?php
+                $tinmoinhat_theoloai_namtin = tinmoinhat_theoloai_namtin($idLT);
+                while($row_tinmoinhat_theoloai_namtin = mysqli_fetch_array($tinmoinhat_theoloai_namtin, MYSQLI_ASSOC))
+                {
+            ?>
+           <h3 class="tlq"><a href="index.php?p=chitiettin&idTin=<?php echo $row_tinmoinhat_theoloai_namtin['idTin']; ?>"><?php echo $row_tinmoinhat_theoloai_namtin['TieuDe']; ?></a></h3>  
+           <?php } ?>         
             </div> 
            
         </div>
@@ -70,67 +89,42 @@
 <!-- //box cat -->
 
 
+
+
 <!-- box cat -->
+<?php
+    $idLT = 25;
+    $tinmoinhat_theoloai_mottin = tinmoinhat_theoloai_mottin($idLT);
+    $row_tinmoinhat_theoloai_mottin = mysqli_fetch_array($tinmoinhat_theoloai_mottin, MYSQLI_ASSOC);
+
+?>
 <div class="box-cat">
-	<div class="cat">
-    	<div class="main-cat">
-        	<a href="#">Cuộc sống đó đây</a>
+    <div class="cat">
+        <div class="main-cat">
+            <a href="#"><?php echo $row_tinmoinhat_theoloai_mottin['Ten']; ?></a>
         </div>
        
         <div class="clear"></div>
         <div class="cat-content">
-        	<div class="col1">
-            	<div class="news">
-                <h3 class="title" ><a href="#"> Tai nạn hàng không dồn dập nửa đầu năm 2014 </a></h3>
-                  <img class="images_news" src="upload/tintuc/ekaterinaparkhome2987311b-1406341819_1406341842_180x108.jpg" align="left" />
-                    <div class="des">Bảy vụ tai nạn hàng không nội địa và quốc tế thảm khốc liên tiếp xảy ra từ đầu năm đến nay khiến dư luận bàng hoàng và trở nên </div>
+            <div class="col1">
+                <div class="news">
+                <h3 class="title" ><a href="index.php?p=chitiettin&idTin=<?php echo $row_tinmoinhat_theoloai_mottin['idTin']; ?>"> <?php echo $row_tinmoinhat_theoloai_mottin['TieuDe']; ?> </a></h3>
+                  <img class="images_news" src="upload/tintuc/<?php echo $row_tinmoinhat_theoloai_mottin['urlHinh']; ?>" align="left" />
+                    <div class="des"><?php echo $row_tinmoinhat_theoloai_mottin['TomTat']; ?> </div>
                   
                   
                     <div class="clear"></div>
                    
-				</div>
+                </div>
             </div>
             <div class="col2">
-           <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-            <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-             <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-           
-            </div> 
-           
-        </div>
-    
-    </div>
-
-</div>
-<div class="clear"></div>
-<!-- //box cat -->
-
-
-<!-- box cat -->
-<div class="box-cat">
-	<div class="cat">
-    	<div class="main-cat">
-        	<a href="#">Cuộc sống đó đây</a>
-        </div>
-       
-        <div class="clear"></div>
-        <div class="cat-content">
-        	<div class="col1">
-            	<div class="news">
-                <h3 class="title" ><a href="#"> Tai nạn hàng không dồn dập nửa đầu năm 2014 </a></h3>
-                  <img class="images_news" src="upload/tintuc/ekaterinaparkhome2987311b-1406341819_1406341842_180x108.jpg" align="left" />
-                    <div class="des">Bảy vụ tai nạn hàng không nội địa và quốc tế thảm khốc liên tiếp xảy ra từ đầu năm đến nay khiến dư luận bàng hoàng và trở nên </div>
-                  
-                  
-                    <div class="clear"></div>
-                   
-				</div>
-            </div>
-            <div class="col2">
-           <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-            <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-             <h3 class="tlq"><a href="#">Dữ liệu hộp đen cho thấy MH17 bị tên lửa bắn hạ</a></h3>
-           
+            <?php
+                $tinmoinhat_theoloai_namtin = tinmoinhat_theoloai_namtin($idLT);
+                while($row_tinmoinhat_theoloai_namtin = mysqli_fetch_array($tinmoinhat_theoloai_namtin, MYSQLI_ASSOC))
+                {
+            ?>
+           <h3 class="tlq"><a href="index.php?p=chitiettin&idTin=<?php echo $row_tinmoinhat_theoloai_namtin['idTin']; ?>"><?php echo $row_tinmoinhat_theoloai_namtin['TieuDe']; ?></a></h3>  
+           <?php } ?>         
             </div> 
            
         </div>

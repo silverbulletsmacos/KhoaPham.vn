@@ -6,7 +6,7 @@ a{ text-decoration:none}
 ul{ list-style:none}
 .left{ float:left; margin:0 2px}
 .right{ float:right}
-.clear{ clear:both; height:5px; margin:5px 0}
+.clear{ clear:both; height:5px; margin: 5px 0}
 .title{ margin:5px 0 5px 0}
 .des{ color:#333; margin-top:3px; line-height:140%} 
 .images_news{ width:120px; margin:0 7px 7px 0}
@@ -72,7 +72,7 @@ ul{ list-style:none}
 #content-vp #content-right .cat .cat-content .title a:hover{ color:#900}	
 #content-vp #content-right .cat .cat-content .col2{ float:left; clear:both}	
 	
-		#content-vp #content-left .news{ min-height:150px; border-bottom:solid 1px #E2E2E3; padding:10px 0; margin-right:5px}
+		#content-vp #content-left .news{ min-height:150px; border-bottom:solid 1px #E2E2E3; padding: 10px 0; margin-right: 5px}
 		#content-vp #content-left .title a{ color:#333; font-weight:bold}
 		#content-vp #content-left a:hover{ color:#900}
 	
@@ -91,9 +91,9 @@ ul{ list-style:none}
 	
 	#content-vp #content-right img{ margin:0 5px 5 0}
 	
-#thongtin{}
-	.thongtin-title{ background:#F4F4F4; height:30px; color:#900; padding:6px 10px 0 10px; border-top:1px solid #DEDEDE; border-bottom:1px solid #DEDEDE}	
-	#thongtin .thongtin-title{ font-weight:bold; font-size:14px}
+#thongtin{ padding-top: 100px; }
+	.thongtin-title{ background:#F4F4F4; height:30px; color:#900; padding:6px 10px 0 10px; border-top:1px solid #DEDEDE; border-bottom:1px solid #DEDEDE;}	
+	#thongtin .thongtin-title{ font-weight:bold; font-size:14px;}
 	.thongtin-content { background:#F4F4F4; min-height:100px; padding:5px 10px}
 	
 #footer{ margin-top: 10px;}	
@@ -104,7 +104,7 @@ ul{ list-style:none}
 	#footer .ulBlockMenu a{ color:#333; font-size:12px; font-weight:normal}
 	#footer .ulBlockMenu a:hover{ color:#900;}
 	#footer .ulBlockMenu li{ margin-bottom:5px}
-	#footer .thongtin-content{ height:220px; padding:20px}
+	#footer .thongtin-content{ height:300px; padding:20px}
 	#footer .lineFmenu{ height:140px}
 	#footer .liFirst a{ font-weight:bold}
 	#footer .ft-bot{ margin:10px 0 10px 0}
@@ -112,7 +112,10 @@ ul{ list-style:none}
 	#footer .bot1{ width:23%}
 	#footer .bot2{ width:30%}
 	#footer .bot3{ width:47%; float:right; text-align:right}
-	
+
+#phantrang {text-align : center;}
+	#phantrang a{ background-color: #000; color: #FF0; padding: 5px; margin-right: 3px; }
+	#phantrang a:hover{ background-color: #09F; }
 	
 	
 	

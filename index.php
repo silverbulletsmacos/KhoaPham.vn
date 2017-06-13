@@ -25,7 +25,7 @@
     	<div id="logo"><img src="images/logo.gif" /></div>
     </div>
     
-    <div id="menu-vp">
+    <div>
     	<!--block/menu.php-->
         <?php require "blocks/menu.php"; ?> 
     </div>
@@ -68,6 +68,8 @@
                                     break;
                             case "tintrongloai" : require "pages/tintrongloai.php";
                                     break;
+                            case "timkiem" : require "pages/timkiem.php";
+                                    break;
                             default : require "pages/trangchu.php";
                         }
                        ?>
@@ -84,8 +86,8 @@
     
      <div id="thongtin">
     	<!--blocks/thongtindoanhnghiep.php-->
-        <!-- <?php require "thongtindoanhnghiep.php"; ?>
- -->    </div>
+         <?php require "blocks/thongtindoanhnghiep.php"; ?>   
+    </div>
     <div class="clear"></div>
     <div id="footer">
     	<!--blocks/footer.php-->
