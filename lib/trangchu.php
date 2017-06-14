@@ -195,6 +195,13 @@ function timkiem($tukhoa)
 }
 
 
-
+function dangnhap($username, $password)
+{
+	global $conn;
+	connect();
+	$sql = "select * from users where Username = '$username' and Password = '$password' "; 
+	// biến chuỗi phải để trong dấu '', số thì không cần
+	return mysqli_query($conn, $sql);
+}
 
 

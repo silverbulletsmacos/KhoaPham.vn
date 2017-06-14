@@ -1,14 +1,6 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Lap Trinh PHP - KhoaPhamTraining</title>
-<link rel="stylesheet" type="text/css" href="css/layout.css" />
-</head>
-
-<body>
-<?php 
+<?php
+    session_start(); 
     require_once "lib/dbcon.php";
     require_once "lib/trangchu.php";
     if(isset($_GET["p"]))
@@ -20,6 +12,49 @@
         $p = "";
     }
 ?>
+
+<?php
+if( isset($_POST["btn_submit"]))
+{
+    $username = $_POST["un"];
+    $password = $_POST["pa"];
+    $password = md5($password);
+    global $conn;
+    connect();
+    $sql = "select * from users where Username = '$username' and Password = '$password' ";
+    $result = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result) ==1)
+    {
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        //var_dump($row);
+        $_SESSION["idUser"] = $row['idUser'];
+        $_SESSION["Username"] = $row['Username'];
+        $_SESSION["HoTen"] = $row['HoTen'];
+        var_dump($_SESSION["HoTen"]);
+        //echo $_SESSION['HoTen'];
+        $_SESSION["idGroup"] = $row['idGroup'];
+    }
+
+}
+?>
+<?php
+if( isset($_POST['logout']))
+    unset($_SESSION['idUser']);
+    unset($_SESSION['Username']);
+    unset($_SESSION['HoTen']);
+    unset($_SESSION['idGroup']);
+    // unset tat ca session = ham session_destroy() ???
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Lap Trinh PHP - KhoaPhamTraining</title>
+<link rel="stylesheet" type="text/css" href="css/layout.css" />
+</head>
+
+<body>
+
 <div id="wrap-vp">
     <div id="header-vp">
     	<div id="logo"><img src="images/logo.gif" /></div>
@@ -77,6 +112,17 @@
         </div>
         <div id="content-right">
 		<!--blocks/cot_phai.php-->
+                <?php
+                    if( !isset($_SESSION["idUser"]))
+                    {
+                        
+                        require "blocks/formlogin.php";
+                    }
+                    else
+                    {
+                        require_once "blocks/formhello.php";
+                    }
+                ?>
                 <?php require "blocks/cot_phai.php"; ?>
         </div>
 
